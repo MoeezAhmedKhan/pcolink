@@ -42,8 +42,8 @@
                                         <th>City</th>
                                         <th>Postal Code</th>
                                         <th>Phone</th>
-                                        <th>Address</th>
                                         <th>Message</th>
+                                        {{-- <th>Message</th> --}}
                                         <th>Date</th>
                                         <th>Delete</th>
                                     </tr>
@@ -58,7 +58,7 @@
                                             <td>{{ $home->postal_code }}</td>
                                             <td>{{ $home->phone }}</td>
                                             <td>{{ $home->address }}</td>
-                                            <td>{{ $home->message }}</td>
+                                            {{-- <td>{{ $home->message }}</td> --}}
                                             <td>{{ $formattedDatetime[$index] }}</td>
                                             <td><a href="contact/{{ $home->id }}/delete" class="badge bg-danger">Delete</a></td>
                                         </tr>

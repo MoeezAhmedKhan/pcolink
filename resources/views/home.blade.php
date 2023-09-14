@@ -25,7 +25,6 @@
         </div>
     </section>
 
-
     <section class="features-area section_gap">
         <div class="container">
             <div class="row text-center mb-3">
@@ -66,13 +65,12 @@
         </div>
     </section>
 
-
     <section class="category-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-12">
                     <div class="row scrollable-div">
-                        <div class="single-deal deal-section" data-aos="fade-down" data-aos-easing="linear"
+                        <div class="single-deal deal-section p-0" data-aos="fade-down" data-aos-easing="linear"
                             data-aos-duration="1000">
                             <h2 class="section-title">{{ $homethird->title ?? 'No title' }}</h2>
                             <p class="section-description">{{ $homethird->description ?? 'No description' }}</p>
@@ -102,7 +100,6 @@
                 @endforeach
             </div>
         </div>
-
     </section>
 
     <section class="related-product-area section_gap_bottom">
@@ -176,18 +173,100 @@
             </div>
         </div>
     </section>
+
+    <section class="exclusive-deal-area mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 no-padding" data-aos="zoom" data-aos-easing="linear" data-aos-duration="1000">
+                    <img src="{{ asset('theme/img/our-vehicle.jpg') }}" id="vehicle-img" alt="">
+                    <div class="triangle"></div>
+                </div>
+                <div class="col-lg-6 col-md-12 vehcile-r-side px-2 px-md-4" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1000">
+                    <h3>All our vehicles :</h3>
+                    <span class="ve-con" style="display: inline-block">&#10140; &nbsp; &nbsp; &nbsp;</span><span
+                        class="ve-con-text">Comply with all TFL and legal regulations</span><br>
+                    <span class="ve-con" style="display: inline-block">&#10140; &nbsp; &nbsp; &nbsp;</span><span
+                        class="ve-con-text">Are well-maintained</span><br>
+                    <span class="ve-con" style="display: inline-block">&#10140; &nbsp; &nbsp; &nbsp;</span><span
+                        class="ve-con-text">Are serviced at regular intervals</span><br>
+                    <span class="ve-con" style="display: inline-block">&#10140; &nbsp; &nbsp; &nbsp;</span><span
+                        class="ve-con-text">Have fully comprehensive insurance cover</span><br>
+                    <span class="ve-con" style="display: inline-block">&#10140; &nbsp; &nbsp; &nbsp;</span><span
+                        class="ve-con-text">Come with breakdown cover</span><br><br>
+                    <img src="{{ asset('theme/img/traa.png') }}" width="30%" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 target-r-side ve-con-text px-2 px-md-4" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
+                    <h3>Our 2030</h3>
+                    <h3>zero-emission target</h3>
+                    <br>
+                    <p>All our vehicles will help us become a zero-emission company by 2030. This is:</p>
+                    <li>Good for you</li>
+                    <li>Good for your family and friends</li>
+                    <li>Good for the environment</li>
+                </div>
+                <div class="col-lg-6 col-md-12 no-padding" data-aos="zoom" data-aos-easing="linear" data-aos-duration="1000">
+                    <img src="{{ asset('theme/img/target.jpg') }}" id="target-img" alt="">
+                    <div class="triangle-right"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <div class="container">
+            <div class="row" data-aos="zoom" data-aos-easing="linear" data-aos-duration="1000">
+                <div class="col-lg-12 col-md-12 px-2 px-md-4" id="homesecondlast">
+                    <p>Investing in a KJ PCO vehicle will help you help London. Remember, Transport For London’s ultra-low
+                        emission policy will be expanded from 21 October 2021. See <a
+                            href="https://tfl.gov.uk/modes/driving/ultra-low-emission-zone"
+                            style="text-decoration: underline">TFL’s website</a> for more details on this.</p>
+                    <p>Contact us today. We will do everything we can to keep you on the road.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="exclusive-deal-area mt-5">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-12 px-2 px-md-4" id="homelast">
+                    <h3 class="mt-3" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">To reserve your vehicle</h3>
+                    <div class="homelast-text mt-3" data-aos="zoom" data-aos-easing="linear" data-aos-duration="1000">
+                        <span style="color: black">Call:</span>&nbsp;&nbsp;<span style="margin-right: 20px">{{ $applyData->phone }}</span><span class="middleline"></span><span
+                            style="color: black;margin-left: 20px">Email:</span>&nbsp;&nbsp;<span><a href="mailto:{{ $applyData->email }}">{{ $applyData->email }}</a></span>
+                    </div>
+                    <a href="{{ url('apply') }}" class="primary-btn mt-3" data-aos="fade-up" data-aos-easing="linear"
+                        data-aos-duration="1000">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 @push('footer-scripts')
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            slidesPerView: 4,
+      var swiper = new Swiper('.mySwiper', {
+            loop: true,
             autoplay: {
-                delay: 3000, // Set the delay in milliseconds
+                interval: 1500,
+                disableOnInteraction: false
+            },
+            breakpoints: {
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 1,
+                },
+                // when window width >= 768px (Larger screens)
+                992: {
+                    slidesPerView: 5,
+                }
             }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 @endpush

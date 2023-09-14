@@ -5,12 +5,12 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Dashboard | IBZ Rentals</title>
+    <title>Dashboard | Pco Link</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin_theme/images/logo-sm.png') }}">
+    <link rel="shortcut icon" href="{{ asset('admin_theme/images/fav.png') }}">
 
     <!-- Fonts css load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,19 +61,19 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="{{ url('/dashboard') }}" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="{{ asset('admin_theme/images/logo-sm.png') }}" alt="" height="22">
+                    <span class="fav">
+                        <img src="{{ asset('admin_theme/images/fav.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('admin_theme/images/logo-dark.png') }}" alt="" height="22">
                     </span>
                 </a>
                 <a href="{{ url('/dashboard') }}" class="logo logo-light">
-                    <span class="logo-sm">
-                        <img src="{{ asset('admin_theme/images/logo-sm.png') }}" alt="" height="22">
-                    </span>
+                    {{-- <span class="fav">
+                        <img src="{{ asset('admin_theme/images/fav.png') }}" alt="" height="22">
+                    </span> --}}
                     <span class="logo-lg">
-                        <img src="{{ asset('admin_theme/images/logo-light.png') }}" alt="" height="22">
+                        <img src="{{ asset('admin_theme/images/admin-logo.png') }}" alt="" height="22">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover"
@@ -159,6 +159,14 @@
                                     <li class="nav-item">
                                         <a href="{{ url('/pcocardetailsfeaturesection') }}" class="nav-link"
                                             data-key="t-analytics">Add Features Section </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('/pcocardetailsinsurancesection') }}" class="nav-link"
+                                            data-key="t-analytics">Add Insurance Section </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('/pcocardetailsbenefitsection') }}" class="nav-link"
+                                            data-key="t-analytics">Add Benefits Section </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('/pcocardetailscontactsection') }}" class="nav-link"
@@ -255,6 +263,14 @@
                                             data-key="t-analytics">Manage Features Section </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="{{ url('/managepcocardetailsinsurancesection') }}" class="nav-link"
+                                            data-key="t-analytics">Manage Insurance Section </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('/managepcocardetailsbenefitsection') }}" class="nav-link"
+                                            data-key="t-analytics">Manage Benefits Section </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="{{ url('/managepcocardetailscontactsection') }}" class="nav-link"
                                             data-key="t-analytics">Manage Contact Section </a>
                                     </li>
@@ -298,8 +314,8 @@
                         <!-- LOGO -->
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="{{ url('/') }}" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="{{ asset('admin_theme/images/logo-sm.png') }}" alt=""
+                                <span class="fav">
+                                    <img src="{{ asset('admin_theme/images/fav.png') }}" alt=""
                                         height="22">
                                 </span>
                                 <span class="logo-lg">
@@ -309,12 +325,12 @@
                             </a>
 
                             <a href="{{ url('/') }}" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="{{ asset('admin_theme/images/logo-sm.png') }}" alt=""
+                                <span class="fav">
+                                    <img src="{{ asset('admin_theme/images/fav.png') }}" alt=""
                                         height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('admin_theme/images/logo-light.png') }}" alt=""
+                                    <img src="{{ asset('admin_theme/images/z.png') }}" alt=""
                                         height="22">
                                 </span>
                             </a>

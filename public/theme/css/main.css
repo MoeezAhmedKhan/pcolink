@@ -11,7 +11,8 @@
 .no-padding {
   padding: 0;
 }
-header{
+
+header {
   z-index: 999999999999;
 }
 
@@ -1620,7 +1621,8 @@ h6 {
   border-bottom-left-radius: 100px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
-.pco-text{
+
+.pco-text {
   border-radius: 100px;
   height: 180px;
   width: 60%;
@@ -1631,10 +1633,12 @@ h6 {
   left: 367px;
   z-index: 12;
 }
-.pco_text_main{
+
+.pco_text_main {
   position: relative;
 }
-.circle{
+
+.circle {
   background-color: black;
   height: 80px;
   width: 80px;
@@ -1644,14 +1648,244 @@ h6 {
   margin-top: 140px;
 }
 
+/*home vehicle*/
+#vehicle-img {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.ve-con {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+.ve-con-text {
+  font-size: 18px;
+  color: gray;
+}
+
+.vehcile-r-side {
+  padding: 80px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-right: 50px solid #555;
+  border-bottom: 25px solid transparent;
+  position: absolute;
+  top: 45%;
+  right: 0;
+
+}
+
+@media (max-width: 767px) {
+  .triangle {
+    display: none;
+  }
+
+  .ve-con-text {
+    display: inline;
+  }
+}
+
+/*home target*/
+#target-img {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-left: 50px solid #555;
+  border-bottom: 25px solid transparent;
+  position: absolute;
+  left: 0;
+  top: 45%;
+}
+
+.target-r-side {
+  margin-top: 25px;
+  padding: 80px;
+}
+
+#homesecondlast {
+  background-color: black;
+  color: white;
+  padding: 80px;
+  border-radius: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#homelast {
+  background-color: rgb(236, 236, 236);
+  padding: 50px;
+  text-align: center;
+}
+
+.middleline {
+  display: inline-block;
+  border-left: 1px solid black;
+  margin: 0 5px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+.homelast-text {
+  font-size: 16px;
+}
+
+.faq-title i {
+  float: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.faq-title[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+/*pcocar slider*/
+/* Position the image container (needed to position the left and right arrows) */
+.imgscontainer {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/*end*/
+#carkeys {
+  background-color: black;
+  border-radius: 10px;
+  padding: 40px;
+  position: relative;
+  left: -15px;
+}
+
+#carkeys h4 {
+  position: relative;
+  color: white;
+}
+
+#carkeys h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.pcoinsurance {
+  border: 1px solid;
+  padding: 17px;
+  width: 70%;
+  height: 45px;
+  border-radius: 30px;
+  line-height: 12px;
+  background-color: black;
+  color: white;
+}
+
+.benifits {
+  display: inline-block;
+}
+
+.benifits-icon {
+  font-size: 22px;
+  color: black
+}
+
 
 
 /* cards */
-.info-btn{
+.info-btn {
   position: relative;
   bottom: 2px;
 }
-.c-body{
+
+.c-body {
   padding: -3.75rem;
 }
 
@@ -1682,7 +1916,8 @@ h6 {
   .banner-area .fullscreen {
     height: 650px !important;
   }
-  .p_abso{
+
+  .p_abso {
     margin-top: -180px;
     position: static !important;
   }
@@ -2020,6 +2255,80 @@ h6 {
   text-align: justify;
 }
 
+.swiper-pagination-bullet {
+  background-color: #000;
+  border: 5px solid #000;
+}
+
+/*image gallery slider*/
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.gallery {
+  display: flex;
+  margin: 10px auto;
+  max-width: 600px;
+  position: relative;
+  padding-top: 66.6666666667%;
+}
+
+@media screen and (min-width: 600px) {
+  .gallery {
+    padding-top: 400px;
+  }
+}
+
+.gallery__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery__thumb {
+  padding-top: 6px;
+  margin: 6px;
+  display: block;
+}
+
+.gallery__selector {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gallery__selector:checked+.gallery__img {
+  opacity: 1;
+}
+
+.gallery__selector:checked~.gallery__thumb>img {
+  box-shadow: 0 0 0 3px #0be2f6;
+}
+
+/* car slider */
+.swiper-horizontal {
+  background-color: black padding 9px;
+  margin: -18px auto;
+  width: 80%;
+}
+
+@media screen and (max-width: 690px) {
+  .swiper-horizontal {
+    display: none
+  }
+}
+
+
+
+/*car slider actuall*/
+
+
+/*end*/
+
+
 /* .scrollable-div{
   width: 100%;
   height: 412px;
@@ -2030,6 +2339,10 @@ h6 {
   background-color: rgb(236, 236, 236);
   border-radius: 10px;
   margin: 15px;
+}
+
+.icon-font {
+  font-size: 18px;
 }
 
 
@@ -2268,7 +2581,7 @@ h6 {
 }
 
 .exclusive-deal-area .exclusive-left {
- /* position: realtive;  */
+  /* position: realtive;  */
   /* background: url(../img/car1.png) center no-repeat; */
   /* background: url(uploads/{{$homesixth->leftimage}}) center no-repeat; */
   /* background-size: cover;
@@ -3058,9 +3371,11 @@ label {
 /* Single Product Area css
 ============================================================================================ */
 .product_image_area {
-  padding-top: 120px;
+  padding-top: 70px;
 }
-
+.zindex{
+  z-index: 99999 !important;
+}
 .s_Product_carousel .owl-dots {
   position: absolute;
   right: 20px;
@@ -5336,7 +5651,7 @@ label {
 }
 
 .contact_form .form-group textarea.form-control {
-  height: 180px;
+  height: 230px;
 }
 
 .contact_form .primary-btn {
@@ -5357,7 +5672,7 @@ label {
   margin: 0px;
   max-width: 500px;
   width: 100%;
-} 
+}
 
 .modal-message .modal-dialog .modal-content .modal-header {
   text-align: center;
@@ -5621,23 +5936,24 @@ label {
   height: 100px;
   width: 200px;
 }
-.pco_main{
+
+.pco_main {
   background-color: #d3d3d3ba;
   padding: 60px 55px;
   border-radius: 135px;
-    text-align: center;
-    color: #000;
+  text-align: center;
+  color: #000;
 }
 
-.p_abso{
+.p_abso {
   position: absolute;
-    /* left: 229px; */
-    right: -115px;
-    top: 135px;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    z-index: 98;
+  /* left: 229px; */
+  right: -115px;
+  top: 135px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  z-index: 98;
 }
 
 
@@ -5673,13 +5989,15 @@ label {
   min-height: 100vh;
   padding: 10vh 0 0;
 }
+
 .faq-title h2 {
-position: relative;
-margin-bottom: 45px;
-display: inline-block;
-font-weight: 600;
-line-height: 1;
+  position: relative;
+  margin-bottom: 45px;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
 }
+
 .faq-title h2::before {
   content: "";
   position: absolute;
@@ -5690,107 +6008,111 @@ line-height: 1;
   bottom: -25px;
   margin-left: -30px;
 }
+
 .faq-title p {
-padding: 0 190px;
-margin-bottom: 10px;
+  padding: 0 190px;
+  margin-bottom: 10px;
 }
 
 .faq {
-background: #FFFFFF;
-box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
-border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
 }
 
 .faq .card {
-border: none;
-background: none;
-border-bottom: 1px dashed #CEE1F8;
+  border: none;
+  background: none;
+  border-bottom: 1px dashed #CEE1F8;
 }
 
 .faq .card .card-header {
-padding: 0px;
-border: none;
-background: none;
--webkit-transition: all 0.3s ease 0s;
--moz-transition: all 0.3s ease 0s;
--o-transition: all 0.3s ease 0s;
-transition: all 0.3s ease 0s;
+  padding: 0px;
+  border: none;
+  background: none;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .faq .card .card-header:hover {
   background: rgb(0 0 0 / 10%);
   padding-left: 10px;
 }
+
 .faq .card .card-header .faq-title {
-width: 100%;
-text-align: left;
-padding: 0px;
-padding-left: 30px;
-padding-right: 30px;
-font-weight: 400;
-font-size: 15px;
-letter-spacing: 1px;
-color: #3B566E;
-text-decoration: none !important;
--webkit-transition: all 0.3s ease 0s;
--moz-transition: all 0.3s ease 0s;
--o-transition: all 0.3s ease 0s;
-transition: all 0.3s ease 0s;
-cursor: pointer;
-padding-top: 20px;
-padding-bottom: 20px;
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #3B566E;
+  text-decoration: none !important;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .faq .card .card-header .faq-title .badge {
-display: inline-block;
-width: 20px;
-height: 20px;
-line-height: 14px;
-float: left;
--webkit-border-radius: 100px;
--moz-border-radius: 100px;
-border-radius: 100px;
-text-align: center;
-background: #000;
-color: #fff;
-font-size: 12px;
-margin-right: 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 14px;
+  float: left;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 20px;
 }
 
 .faq .card .card-body {
-padding: 30px;
-padding-left: 35px;
-padding-bottom: 16px;
-font-weight: 400;
-font-size: 16px;
-color: #6F8BA4;
-line-height: 28px;
-letter-spacing: 1px;
-border-top: 1px solid #F3F8FF;
+  padding: 30px;
+  padding-left: 35px;
+  padding-bottom: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #6F8BA4;
+  line-height: 28px;
+  letter-spacing: 1px;
+  border-top: 1px solid #F3F8FF;
 }
 
 .faq .card .card-body p {
-margin-bottom: 14px;
+  margin-bottom: 14px;
 }
 
 @media (max-width: 991px) {
-.faq {
-  margin-bottom: 30px;
-}
-.faq .card .card-header .faq-title {
-  line-height: 26px;
-  margin-top: 10px;
-}
+  .faq {
+    margin-bottom: 30px;
+  }
+
+  .faq .card .card-header .faq-title {
+    line-height: 26px;
+    margin-top: 10px;
+  }
 }
 
 /* faq css end */
 
-.my_card{
+.my_card {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
   border: none !important;
   transition: 0.5s !important;
 }
-.my_card:hover{
+
+.my_card:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
   transition: 0.5s !important;
 }

@@ -129,6 +129,22 @@ Route::get('/pcocarsfeature/{id}/edit/{pcocarsid}', [AdminManage::class, 'editpc
 Route::put('/pcocarsfeature/{id}/update/{pcocarid}', [AdminManage::class, 'updatepcocarsfeature']);
 Route::get('/pcocarsfeature/{id}/delete/{pcocarsid}', [AdminManage::class, 'deletepcocarsfeature'])->name('deletepcocarfeatures');
 
+Route::get('/pcocardetailsinsurancesection', [AdminAdd::class, 'addpcocardetailsinsurancesection']);
+Route::post('/pcocardetailsinsurancesection', [AdminAdd::class, 'submitpcocardetailsinsurancesection']);
+Route::get('/managepcocardetailsinsurancesection', [AdminManage::class, 'managepcocardetailsinsurancesection']);
+Route::get('/viewinsurance/{id}/view', [AdminManage::class, 'managepcocarsinsurance'])->name('viewpcocarinsurance');
+Route::get('/pcocarsinsurance/{id}/edit/{pcocarsid}', [AdminManage::class, 'editpcocarinsurance'])->name('editpcocarinsurance');
+Route::put('/pcocarsinsurance/{id}/update/{pcocarid}', [AdminManage::class, 'updatepcocarsinsurance']);
+Route::get('/pcocarsinsurance/{id}/delete/{pcocarsid}', [AdminManage::class, 'deletepcocarinsurance'])->name('deletepcocarinsurance');
+
+Route::get('/pcocardetailsbenefitsection', [AdminAdd::class, 'addpcocardetailsbenefitsection']);
+Route::post('/pcocardetailsbenefitsection', [AdminAdd::class, 'submitpcocardetailsbenefitsection']);
+Route::get('/managepcocardetailsbenefitsection', [AdminManage::class, 'managepcocardetailsbenefitsection']);
+Route::get('/viewbenefits/{id}/view', [AdminManage::class, 'managepcocarsbenefit'])->name('viewpcocarbenefit');
+Route::get('/pcocarsbenefit/{id}/edit/{pcocarsid}', [AdminManage::class, 'editpcocarbenefit'])->name('editpcocarbenefit');
+Route::put('/pcocarsbenefit/{id}/update/{pcocarid}', [AdminManage::class, 'updatepcocarsbenefit']);
+Route::get('/pcocarsbenefit/{id}/delete/{pcocarsid}', [AdminManage::class, 'deletepcocarsbenefit'])->name('deletepcocarbenefit');
+
 Route::get('/pcocardetailscontactsection', [AdminAdd::class, 'addpcocardetailscontactsection']);
 Route::post('/pcocardetailscontactsection', [AdminAdd::class, 'submitpcocardetailscontactsection']);
 Route::get('/managepcocardetailscontactsection', [AdminManage::class, 'managepcocardetailscontactsection']);

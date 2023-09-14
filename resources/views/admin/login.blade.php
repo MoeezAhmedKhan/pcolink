@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Sign In | Ibz Rentals - Admin Portal</title>
+    <title>Sign In | PCO Link - Admin Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -54,7 +54,7 @@
                                     <div class="card-body p-sm-5 m-lg-4">
                                         <div class="text-center mt-5">
                                             <h5 class="fs-3xl">Welcome</h5>
-                                            <p class="text-muted">Sign in to access the Ibz Rental Portal.</p>
+                                            <p class="text-muted">Sign in to access the PCO Link Portal.</p>
                                         </div>
                                         <div class="p-2 mt-5">
                                             <form action="{{ url('admin') }}" method="POST">

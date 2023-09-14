@@ -3,15 +3,15 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{ asset('theme/img/logo-sm.png') }}">
+    <link rel="shortcut icon" href="{{ asset('theme/img/fav.png') }}">
     <meta name="author" content="CodePixar">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta charset="UTF-8">
+    <title>PCO Link - London</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ibz Rentals</title>
     <link rel="stylesheet" href="{{ asset('theme/css/linearicons.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/themify-icons.css') }}">
@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <!-- Include Magnific Popup JavaScript for image slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <style>
         .f-active {
             border-bottom: 1px solid black;
@@ -327,13 +331,13 @@
 </head>
 
 <body>
-    <header class="header_area sticky-header">
+    <header class="header_area sticky-header zindex">
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light main_box">
                 <div class="container">
 
                     <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
-                            src="{{ asset('theme/img/black.png') }}" alt=""></a>
+                            src="{{ asset('theme/img/weblogo.png') }}" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -444,25 +448,13 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{ asset('theme/js/gmaps.min.js') }}"></script>
     <script src="{{ asset('theme/js/main.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <!-- slider -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
         AOS.init();
     </script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            slidesPerView: 4,
-            autoplay: {
-                delay: 3000, // Set the delay in milliseconds
-            }
-        });
-    </script>
-
     <script>
         window.dataLayer = window.dataLayer || [];
 

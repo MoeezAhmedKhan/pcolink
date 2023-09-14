@@ -40,15 +40,6 @@
                                         <th>Days Limit</th>
                                         <th>Car Type</th>
                                         <th>Year</th>
-                                        <th>Mileage</th>
-                                        <th>Fuel Type</th>
-                                        <th>Gear Box</th>
-                                        <th>Doors</th>
-                                        <th>Seats</th>
-                                        <th>Engine Size</th>
-                                        <th>Body Type</th>
-                                        <th>Colour</th>
-                                        <th>Car Code</th>
                                         <th>Main Image</th>
                                         <th>View Image</th>
                                         <th>Edit</th>
@@ -65,15 +56,6 @@
                                             <td>{{ $home->days_limit }}</td>
                                             <td>{{ $home->car_type }}</td>
                                             <td>{{ $home->year }}</td>
-                                            <td>{{ $home->mileage }}</td>
-                                            <td>{{ $home->fuel_type }}</td>
-                                            <td>{{ $home->gear_box }}</td>
-                                            <td>{{ $home->doors }}</td>
-                                            <td>{{ $home->seats }}</td>
-                                            <td>{{ $home->engine_size }}</td>
-                                            <td>{{ $home->body_type }}</td>
-                                            <td>{{ $home->colour }}</td>
-                                            <td>{{ $home->car_code }}</td>
                                             <td>
                                                 <div class="avatar-group">
                                                     <a href="uploads/{{ $home->image }}" class="avatar-group-item"

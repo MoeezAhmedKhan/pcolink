@@ -27,7 +27,9 @@ use App\Models\FooterContactSection;
 use App\Models\FooterNewsletterSection;
 use App\Models\FooterFollowUsSection;
 use App\Models\FooterCopyrightSection;
+use App\Models\PcoCarsBenefitSection;
 use App\Models\PcoCarsImages;
+use App\Models\PcoCarsInsuranceSection;
 use App\Models\PcoCarsThirdSectionHead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -49,17 +51,19 @@ class BaseController extends Controller
         $foofollowus = FooterFollowUsSection::latest()->first();
         $foocopyright = FooterCopyrightSection::latest()->first();
 
+        $applyData = ApplyFirstSection::latest()->first();
+
         return view('home', [
             'homefirst' => $homefirst, 'homesecond' => $homesecond, 'homethird' => $homethird,
             'homefourth' => $homefourth, 'homefifth' => $homefifth, 'homesixth' => $homesixth, 'fooabout' => $fooabout,
             'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
-            'foocopyright' => $foocopyright
+            'foocopyright' => $foocopyright, 'applyData' => $applyData
         ]);
     }
     public function pcocars()
     {
         $pcocarfirst = PcoCarsFirstSection::latest()->first();
-        $pcocarsecond = PcoCarsSecondSection::all();
+        $pcocarsecond = PcoCarsSecondSection::all()->reverse();
         $pcocarthirdHead = PcoCarsThirdSectionHead::latest()->first();
         $pcocarthird = PcoCarsThirdSection::all();
 
@@ -71,7 +75,7 @@ class BaseController extends Controller
 
         return view("pcocars", [
             'pcocarfirst' => $pcocarfirst, 'pcocarsecond' => $pcocarsecond, 'pcocarthirdHead' => $pcocarthirdHead,
-            'pcocarthird' => $pcocarthird, 'fooabout' => $fooabout,'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
+            'pcocarthird' => $pcocarthird, 'fooabout' => $fooabout, 'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
             'foocopyright' => $foocopyright
         ]);
     }
@@ -86,10 +90,12 @@ class BaseController extends Controller
         $foofollowus = FooterFollowUsSection::latest()->first();
         $foocopyright = FooterCopyrightSection::latest()->first();
 
+        $applyData = ApplyFirstSection::latest()->first();
+
         return view("help", [
             'help1' => $help1, 'help2' => $help2, 'fooabout' => $fooabout,
             'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
-            'foocopyright' => $foocopyright
+            'foocopyright' => $foocopyright, 'applyData' => $applyData
         ]);
     }
     public function apply()
@@ -114,6 +120,8 @@ class BaseController extends Controller
         $carImage = PcoCarsImages::where('pco_cars_id', $id)->get();
         $aboutData = PcoCarsAboutSection::where('pco_cars_id', $id)->latest()->first();
         $featureData = PcoCarsFeatureSection::where('pco_cars_id', $id)->get();
+        $insuranceData = PcoCarsInsuranceSection::where('pco_cars_id', $id)->get();
+        $benefitData = PcoCarsBenefitSection::where('pco_cars_id', $id)->get();
         $contactData = PcoCarssContactSection::latest()->first();
 
         $fooabout = FooterAboutSection::latest()->first();
@@ -122,11 +130,14 @@ class BaseController extends Controller
         $foofollowus = FooterFollowUsSection::latest()->first();
         $foocopyright = FooterCopyrightSection::latest()->first();
 
+        $pcocarsecond = PcoCarsSecondSection::all();
+        $applyData = ApplyFirstSection::latest()->first();
+        // dd($carData->car_name." ".$carData->year);
+
         return view("cardetails", [
             'carData' => $carData, 'carImage' => $carImage, 'aboutData' => $aboutData, 'contactData' => $contactData,
-            'featureData' => $featureData, 'fooabout' => $fooabout,
-            'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
-            'foocopyright' => $foocopyright
+            'featureData' => $featureData, 'insuranceData' => $insuranceData, 'benefitData' => $benefitData, 'fooabout' => $fooabout, 'foocontact' => $foocontact, 'foonewsletter' => $foonewsletter, 'foofollowus' => $foofollowus,
+            'foocopyright' => $foocopyright, 'pcocarsecond' => $pcocarsecond, 'applyData' => $applyData
         ]);
     }
     public function submitContactForm(Request $request)
@@ -137,9 +148,13 @@ class BaseController extends Controller
             'city' => 'required',
             'postal' => 'required',
             'phone' => 'required',
-            'address' => 'required',
             'message' => 'required',
         ]);
+
+        // Mail::raw("Name: $request->name\nEmail: $request->email\nCity: $request->city\nPostal: $request->postal\nPhone: $request->phone\nMessage: $request->message", function ($message) use ($request) {
+        //     $message->from('Sales@ibzmotorz.co.uk', 'PCO Link');
+        //     $message->to($request->email)->subject('New Message');
+        // });
 
         $ApplySecondSection = new ApplySecondSection;
         $ApplySecondSection->name = $request->name;
@@ -147,8 +162,7 @@ class BaseController extends Controller
         $ApplySecondSection->city = $request->city;
         $ApplySecondSection->postal_code = $request->postal;
         $ApplySecondSection->phone = $request->phone;
-        $ApplySecondSection->address = $request->address;
-        $ApplySecondSection->message = $request->message;
+        $ApplySecondSection->address = $request->message;
         $ApplySecondSection->save();
 
         return back()->withSuccess('Contact Submitted Successfully');

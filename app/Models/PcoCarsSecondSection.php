@@ -21,5 +21,13 @@ class PcoCarsSecondSection extends Model
     {
         return $this->hasMany(PcoCarsAboutSection::class, 'pco_cars_id', 'id');
     }
+    public function carinsurance()
+    {
+        return $this->hasMany(PcoCarsInsuranceSection::class, 'pco_cars_id', 'id');
+    }
+    public function carbenefit()
+    {
+        return $this->hasMany(PcoCarsBenefitSection::class, 'pco_cars_id', 'id');
+    }
     
 }

@@ -9,6 +9,7 @@ use App\Models\HomeFourthSection;
 use App\Models\HomeFifthSection;
 use App\Models\HomeSixthSection;
 //
+use App\Models\PcoCarsBenefitSection;
 use App\Models\PcoCarsFirstSection;
 use App\Models\PcoCarsSecondSection;
 use App\Models\PcoCarsThirdSection;
@@ -29,6 +30,9 @@ use App\Models\FooterFollowUsSection;
 use App\Models\FooterCopyrightSection;
 use App\Models\PcoCarsImages;
 use App\Models\PcoCarsThirdSectionHead;
+//
+use App\Models\PcoCarsInsuranceSection;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -264,14 +268,6 @@ class AdminAdd extends Controller
             'days_limit' => 'required',
             'car_type' => 'required',
             'year' => 'required',
-            'mileage' => 'required',
-            'fuel_type' => 'required',
-            'gear_box' => 'required',
-            'doors' => 'required',
-            'seats' => 'required',
-            'engine_size' => 'required',
-            'body_type' => 'required',
-            'colour' => 'required',
             'othercarimages' => 'required|array',
             'othercarimages.*' => 'required|file|mimes:jpeg,jpg,png|max:5000000',
         ]);
@@ -293,14 +289,6 @@ class AdminAdd extends Controller
         $pcocarsSecondSection->days_limit = $request->days_limit;
         $pcocarsSecondSection->car_type = $request->car_type;
         $pcocarsSecondSection->year = $request->year;
-        $pcocarsSecondSection->mileage = $request->mileage;
-        $pcocarsSecondSection->fuel_type = $request->fuel_type;
-        $pcocarsSecondSection->gear_box = $request->gear_box;
-        $pcocarsSecondSection->doors = $request->doors;
-        $pcocarsSecondSection->seats = $request->seats;
-        $pcocarsSecondSection->engine_size = $request->engine_size;
-        $pcocarsSecondSection->body_type = $request->body_type;
-        $pcocarsSecondSection->colour = $request->colour;
         $pcocarsSecondSection->car_code = $code;
         $pcocarsSecondSection->save();
         $last_inserted_id = $pcocarsSecondSection->id;
@@ -405,6 +393,50 @@ class AdminAdd extends Controller
         }
 
         return back()->withSuccess('Features Data Added Successfully');
+    }
+
+    // isurance section
+    public function addpcocardetailsinsurancesection()
+    {
+        $pcocars = PcoCarsSecondSection::get();
+        return view("admin.pcocars.insurancesection",['pcocars' => $pcocars]);
+    }
+    public function  submitpcocardetailsinsurancesection(Request $request)
+    {
+        $pcocarinsuranceSection = new PcoCarsInsuranceSection;
+        $insur = $request->insurance; // Assuming $feat is an array
+        $car = $request->car;
+
+        foreach ($insur as $value) {
+            $pcocarinsuranceSection->insurance = $value;
+            $pcocarinsuranceSection->pco_cars_id = $car;
+            $pcocarinsuranceSection->save();
+            $pcocarinsuranceSection = new PcoCarsInsuranceSection; // Create a new instance for the next iteration
+        }
+
+        return back()->withSuccess('Insurance Added Successfully');
+    }
+
+    // benefits section
+    public function addpcocardetailsbenefitsection()
+    {
+        $pcocars = PcoCarsSecondSection::get();
+        return view("admin.pcocars.benefitsection",['pcocars' => $pcocars]);
+    }
+    public function submitpcocardetailsbenefitsection(Request $request)
+    {
+        $pcocarbenefitSection = new PcoCarsBenefitSection;
+        $bene = $request->benefit; // Assuming $feat is an array
+        $car = $request->car;
+
+        foreach ($bene as $value) {
+            $pcocarbenefitSection->benefit = $value;
+            $pcocarbenefitSection->pco_cars_id = $car;
+            $pcocarbenefitSection->save();
+            $pcocarbenefitSection = new PcoCarsBenefitSection; // Create a new instance for the next iteration
+        }
+
+        return back()->withSuccess('Benefit Added Successfully');
     }
 
     // contact section

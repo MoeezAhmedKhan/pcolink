@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Add Features Section For Pco Cars Details</h4>
+                        <h4 class="mb-sm-0">Edit Features Section For Pco Cars Details</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -33,7 +33,7 @@
                                 @method('PUT')
                                 <div class="row gy-4 input_field_wrap">
                                     <div class="col-md-10">
-                                        <label for="placeholderInput" class="form-label">Enter Features</label>
+                                        <label for="placeholderInput" class="form-label">Enter Feature</label>
                                         <input type="text" name="feature" class="form-control" value="{{$pcocarsfeature[0]->feature}}" placeholder="Enter Feature">
                                         @if ($errors->has('feature'))
                                             <span class="text-danger">{{ $errors->first('feature') }}</span>

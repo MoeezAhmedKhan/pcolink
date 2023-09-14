@@ -45,7 +45,7 @@
                                 <div class="row gy-4">
                                     <div class="col-md-12">
                                         <label class="form-label">Section Image <span class="text-success"><strong>(Upload
-                                                    multiple image at a time)</strong></span></label>
+                                                    multiple image at a time) (Upload min 10 Images for slider)</strong></span></label>
                                         <input class="form-control" name="images[]" type="file" multiple>
                                         {{-- @if ($errors->has('images'))
                                             <span class="text-danger">{{ $errors->first('images') }}</span>

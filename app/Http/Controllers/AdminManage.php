@@ -27,7 +27,9 @@ use App\Models\FooterContactSection;
 use App\Models\FooterNewsletterSection;
 use App\Models\FooterFollowUsSection;
 use App\Models\FooterCopyrightSection;
+use App\Models\PcoCarsBenefitSection;
 use App\Models\PcoCarsImages;
+use App\Models\PcoCarsInsuranceSection;
 use App\Models\PcoCarsThirdSectionHead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -550,7 +552,7 @@ class AdminManage extends Controller
     // second section
     public function managepcocarssecondsection()
     {
-        $pcosecond = PcoCarsSecondSection::get();
+        $pcosecond = PcoCarsSecondSection::get()->reverse();
         $pcocarsAbout = PcoCarsAboutSection::get();
         $pcocarsfeautre = PcoCarsFeatureSection::get();
         return view("admin.pcocars.managesecondsection", ['pcosecond' => $pcosecond, 'pcocarsAbout' => $pcocarsAbout, 'pcocarsfeautre' => $pcocarsfeautre]);
@@ -582,14 +584,6 @@ class AdminManage extends Controller
             'days_limit' => 'required',
             'car_type' => 'required',
             'year' => 'required',
-            'mileage' => 'required',
-            'fuel_type' => 'required',
-            'gear_box' => 'required',
-            'doors' => 'required',
-            'seats' => 'required',
-            'engine_size' => 'required',
-            'body_type' => 'required',
-            'colour' => 'required',
             'image' => 'nullable|mimes:png,jpg,jpeg|max:5000000',
         ]);
         $pcocarsSecondSection = PcoCarsSecondSection::where('id', $id)->first();
@@ -614,14 +608,6 @@ class AdminManage extends Controller
         $pcocarsSecondSection->days_limit = $request->days_limit;
         $pcocarsSecondSection->car_type = $request->car_type;
         $pcocarsSecondSection->year = $request->year;
-        $pcocarsSecondSection->mileage = $request->mileage;
-        $pcocarsSecondSection->fuel_type = $request->fuel_type;
-        $pcocarsSecondSection->gear_box = $request->gear_box;
-        $pcocarsSecondSection->doors = $request->doors;
-        $pcocarsSecondSection->seats = $request->seats;
-        $pcocarsSecondSection->engine_size = $request->engine_size;
-        $pcocarsSecondSection->body_type = $request->body_type;
-        $pcocarsSecondSection->colour = $request->colour;
         $pcocarsSecondSection->save();
         return redirect('/managepcocarssecondsection')->with('session', 'Section Data Updated Successfully');
     }
@@ -652,6 +638,8 @@ class AdminManage extends Controller
     public function deletepcocarssecondsection($id)
     {
         $pcofeatures = PcoCarsFeatureSection::where('pco_cars_id', $id)->get();
+        $pcoinsurance = PcoCarsInsuranceSection::where('pco_cars_id', $id)->get();
+        $pcobenefit = PcoCarsBenefitSection::where('pco_cars_id', $id)->get();
         $pcoabout = PcoCarsAboutSection::where('pco_cars_id', $id)->get();
         $pcosecond = PcoCarsSecondSection::where('id', $id)->first();
         $PcoCarsImages = PcoCarsImages::where('pco_cars_id', $id)->get();
@@ -659,6 +647,12 @@ class AdminManage extends Controller
 
         foreach ($pcofeatures as $feat) {
             $pcosecond->carfeatures()->delete();
+        }
+        foreach ($pcoinsurance as $insur) {
+            $pcosecond->carinsurance()->delete();
+        }
+        foreach ($pcobenefit as $bene) {
+            $pcosecond->carbenefit()->delete();
         }
         foreach ($pcoabout as $about) {
             $pcosecond->carabout()->delete();
@@ -854,7 +848,7 @@ class AdminManage extends Controller
             ->select('c.id', 'c.car_name')
             ->join('pco_cars_second_sections as c', 'f.pco_cars_id', '=', 'c.id')
             ->distinct('c.car_name')
-            ->get();
+            ->get()->reverse();
 
         return view("admin.pcocars.managefeaturesection", ['pcocarsfeautre' => $pcocarsfeautre]);
     }
@@ -887,6 +881,90 @@ class AdminManage extends Controller
         $pcocarsabout = PcoCarsFeatureSection::where('id', $id)->first();
         $pcocarsabout->delete();
         return redirect()->route('viewpcocarfeatures', ["id" => $pcocarsid])->with('session', 'Feature Deleted Successfully');
+    }
+
+    //insurance section
+    public function managepcocardetailsinsurancesection()
+    {
+        $pcocarsinsurance = DB::table('pco_cars_insurance_sections as i')
+            ->select('c.id', 'c.car_name')
+            ->join('pco_cars_second_sections as c', 'i.pco_cars_id', '=', 'c.id')
+            ->distinct('c.car_name')
+            ->get()->reverse();
+
+        return view("admin.pcocars.manageinsurancesection", ['pcocarsinsurance' => $pcocarsinsurance]);
+    }
+    public function managepcocarsinsurance($id)
+    {
+        $pcocarsinsurance = DB::table('pco_cars_insurance_sections as i')
+            ->select('i.id', 'i.insurance')
+            ->join('pco_cars_second_sections as c', 'i.pco_cars_id', '=', 'c.id')
+            ->where('i.pco_cars_id', '=', $id)
+            ->get();
+        return view("admin.pcocars.manageinsurance", ['pcocarsinsurance' => $pcocarsinsurance, 'pcocarsid' => $id]);
+    }
+    public function editpcocarinsurance($id, $pcocarid)
+    {
+        $pcocarsinsurance = PcoCarsInsuranceSection::where('id', $id)->get();
+        return view("admin.pcocars.editinsurance", ['pcocarsinsurance' => $pcocarsinsurance, 'pcocarid' => $pcocarid]);
+    }
+    public function updatepcocarsinsurance(Request $request, $id, $pcocarsid)
+    {
+        $request->validate([
+            'insurance' => 'required',
+        ]);
+        $pcocarsfeautre = PcoCarsInsuranceSection::where('id', $id)->first();
+        $pcocarsfeautre->insurance = $request->insurance;
+        $pcocarsfeautre->save();
+        return redirect()->route('viewpcocarinsurance', ["id" => $pcocarsid])->with('session', 'Insurance Updated Successfully');
+    }
+    public function deletepcocarinsurance($id, $pcocarsid)
+    {
+        $pcocarsabout = PcoCarsInsuranceSection::where('id', $id)->first();
+        $pcocarsabout->delete();
+        return redirect()->route('viewpcocarinsurance', ["id" => $pcocarsid])->with('session', 'Insurance Deleted Successfully');
+    }
+
+    //benefit
+    public function managepcocardetailsbenefitsection()
+    {
+        $pcocarsbenefit = DB::table('pco_cars_benefit_sections as b')
+            ->select('c.id', 'c.car_name')
+            ->join('pco_cars_second_sections as c', 'b.pco_cars_id', '=', 'c.id')
+            ->distinct('c.car_name')
+            ->get()->reverse();
+
+        return view("admin.pcocars.managebenefitsection", ['pcocarsbenefit' => $pcocarsbenefit]);
+    }
+    public function managepcocarsbenefit($id)
+    {
+        $pcocarsbenefit = DB::table('pco_cars_benefit_sections as b')
+            ->select('b.id', 'b.benefit')
+            ->join('pco_cars_second_sections as c', 'b.pco_cars_id', '=', 'c.id')
+            ->where('b.pco_cars_id', '=', $id)
+            ->get();
+        return view("admin.pcocars.managebenefits", ['pcocarsbenefit' => $pcocarsbenefit, 'pcocarsid' => $id]);
+    }
+    public function editpcocarbenefit($id, $pcocarid)
+    {
+        $pcocarsbenefit = PcoCarsBenefitSection::where('id', $id)->get();
+        return view("admin.pcocars.editbenefit", ['pcocarsbenefit' => $pcocarsbenefit, 'pcocarid' => $pcocarid]);
+    }
+    public function updatepcocarsbenefit(Request $request, $id, $pcocarsid)
+    {
+        $request->validate([
+            'benefit' => 'required',
+        ]);
+        $pcocarsbenefit = PcoCarsBenefitSection::where('id', $id)->first();
+        $pcocarsbenefit->benefit = $request->benefit;
+        $pcocarsbenefit->save();
+        return redirect()->route('viewpcocarbenefit', ["id" => $pcocarsid])->with('session', 'Benefit Updated Successfully');
+    }
+    public function deletepcocarsbenefit($id, $pcocarsid)
+    {
+        $pcocarsbenefit = PcoCarsBenefitSection::where('id', $id)->first();
+        $pcocarsbenefit->delete();
+        return redirect()->route('viewpcocarbenefit', ["id" => $pcocarsid])->with('session', 'Benefit Deleted Successfully');
     }
 
     // help page
